@@ -1,0 +1,37 @@
+#!/bin/bash
+
+a=$1
+
+filename=$(basename -- $a)
+extension="${filename##*.}"
+filename="${filename%.*}"
+
+C_LANG="c"
+CPP_LANG="cpp"
+PY_LANG="py"
+WEB_LANG="html"
+JAVA_LANG="java"
+JS_LANG="js"
+
+touch $a
+
+if [ $extension == $C_LANG ]
+then
+	gcc $a && ./a.out
+elif [ $extension == $CPP_LANG ]
+then
+        g++ $a && ./a.out
+elif [ $extension == $PY_LANG ]
+then
+	python3 $a
+elif [ $extension == $WEB_LANG ]
+then
+        python3 -m webbrowser $a
+elif [ $extension == $JAVA_LANG ]
+then
+        javac $a && java $filename
+elif [ $extension == $JS_LANG ]
+then
+        node $a
+fi
+echo
