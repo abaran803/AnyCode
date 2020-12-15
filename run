@@ -23,7 +23,7 @@ then
         g++ $a && ./a.out
 elif [ $extension == $PY_LANG ]
 then
-	python3 $a
+	python3
 elif [ $extension == $WEB_LANG ]
 then
         python3 -m webbrowser $a
